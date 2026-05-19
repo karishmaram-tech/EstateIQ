@@ -1,0 +1,67 @@
+[2026-05-19 11:14:03] [INFO] Starting EstateIQ v1.0.0
+[2026-05-19 11:14:03] [INFO] Environment: development
+[2026-05-19 11:14:03] [WARNING] Model not found at model/house_price_model.pkl. Using mock predictions.
+[2026-05-19 11:15:52] [WARNING] Model not found at model/house_price_model.pkl. Using mock predictions.
+[2026-05-19 11:15:55] [WARNING] REQUEST [20260519111555867475] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:15:55] [WARNING] REQUEST [20260519111555944295] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556026419] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556101833] | Validation failed | ['Bedrooms must be between 1 and 20']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556197511] | Validation failed | ['Bathrooms must be between 1 and 15']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556266008] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556334851] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556407652] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556431246] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:15:56] [WARNING] REQUEST [20260519111556642037] | Empty JSON received
+[2026-05-19 11:15:56] [ERROR] REQUEST [20260519111556672375] | SERVER ERROR | 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "C:\Users\Pawan\house-price-app\EstateIQ\app.py", line 167, in predict
+    data = request.get_json()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pawan\house-price-app\EstateIQ\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pawan\house-price-app\EstateIQ\venv\Lib\site-packages\flask\wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pawan\house-price-app\EstateIQ\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+[2026-05-19 11:16:35] [INFO] Starting EstateIQ v1.0.0
+[2026-05-19 11:16:35] [INFO] Environment: development
+[2026-05-19 11:16:35] [WARNING] Model not found at model/house_price_model.pkl. Using mock predictions.
+[2026-05-19 11:22:01] [WARNING] Model not found at model/house_price_model.pkl. Using mock predictions.
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204355605] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204374050] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204412887] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204428163] | Validation failed | ['Bedrooms must be between 1 and 20']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204473550] | Validation failed | ['Bathrooms must be between 1 and 15']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204505628] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204554227] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204574098] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204646178] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204679040] | Empty JSON received
+[2026-05-19 11:22:04] [WARNING] REQUEST [20260519112204744683] | Empty JSON received
+[2026-05-19 11:24:05] [WARNING] Model not found at model/house_price_model.pkl. Using mock predictions.
+[2026-05-19 11:24:09] [WARNING] REQUEST [20260519112409930300] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:24:09] [WARNING] REQUEST [20260519112409989987] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410054041] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410151000] | Validation failed | ['Bedrooms must be between 1 and 20']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410265003] | Validation failed | ['Bathrooms must be between 1 and 15']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410350888] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410457762] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410552101] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410585584] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410635989] | Empty JSON received
+[2026-05-19 11:24:10] [WARNING] REQUEST [20260519112410704724] | Empty JSON received
+[2026-05-19 11:28:04] [WARNING] Model not found at model/house_price_model.pkl. Using mock predictions.
+[2026-05-19 11:28:04] [WARNING] REQUEST [20260519112804822878] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:28:04] [WARNING] REQUEST [20260519112804952783] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805013902] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805046293] | Validation failed | ['Bedrooms must be between 1 and 20']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805072108] | Validation failed | ['Bathrooms must be between 1 and 15']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805121161] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805136185] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805162752] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805194478] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805207135] | Empty JSON received
+[2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805254879] | Empty JSON received
