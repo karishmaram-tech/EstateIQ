@@ -1,0 +1,26 @@
+{
+  "r2_score": 0.8879,
+  "mae": 17349.89,
+  "rmse": 21830.52,
+  "mape": 4.13,
+  "accuracy": 88.8,
+  "cv_mean": 0.8523,
+  "cv_std": 0.017,
+  "train_size": 1600,
+  "test_size": 400,
+  "features": 10,
+  "feature_names": [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "floors",
+    "year_built",
+    "garage",
+    "pool",
+    "garden",
+    "location_score",
+    "condition"
+  ],
+  "algorithm": "Gradient Boosting Regressor",
+  "sklearn_version": "1.8.0"
+}

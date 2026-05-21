@@ -1006,3 +1006,98 @@ select {
   .metrics-grid { grid-template-columns: 1fr 1fr; }
   .features-grid { grid-template-columns: 1fr; }
 }
+/* ═══════════════════════════════════════════════════
+   SHAP EXPLAINABILITY SECTION
+═══════════════════════════════════════════════════ */
+
+.shap-section {
+  padding: 80px 0 120px;
+}
+
+.shap-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  align-items: start;
+}
+
+.shap-chart-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shap-explainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shap-explainer h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.shap-explainer p {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+.shap-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shap-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.shap-item i {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.shap-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.shap-item strong {
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.shap-item span {
+  font-size: 0.78rem;
+  color: var(--text-3);
+}
+
+.shap-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .shap-layout {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}

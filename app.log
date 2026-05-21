@@ -65,3 +65,22 @@ werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not at
 [2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805194478] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
 [2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805207135] | Empty JSON received
 [2026-05-19 11:28:05] [WARNING] REQUEST [20260519112805254879] | Empty JSON received
+[2026-05-21 23:57:26] [INFO] Starting EstateIQ v1.0.0
+[2026-05-21 23:57:26] [INFO] Environment: development
+[2026-05-21 23:57:26] [INFO] Loading trained model from: model/house_price_model.pkl
+[2026-05-21 23:57:29] [INFO] Starting server on port 7860
+[2026-05-21 23:58:13] [DEBUG] Loaded real model metrics from training
+[2026-05-21 23:58:41] [INFO] REQUEST [20260521235841225495] | New prediction request received
+[2026-05-21 23:58:41] [DEBUG] REQUEST [20260521235841225495] | Raw input: {'area': 2400, 'bedrooms': 3, 'bathrooms': 2, 'stories': 2, 'parking': 2, 'mainroad': 'yes', 'prefarea': 'yes', 'furnishingstatus': 'furnished', 'airconditioning': 'yes', 'basement': 'no', 'guestroom': 'no', 'hotwaterheating': 'no'}
+[2026-05-21 23:58:41] [INFO] REQUEST [20260521235841225495] | SUCCESS | Price: $473,508 | Market: Above Average | Model: trained_model | Time: 123.82ms
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111432350] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111437763] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111443892] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111450280] | Validation failed | ['Bedrooms must be between 1 and 20']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111464719] | Validation failed | ['Bathrooms must be between 1 and 15']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111474717] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111482339] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111494909] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111505411] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111512410] | Empty JSON received
+[2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111521547] | Empty JSON received

@@ -1480,7 +1480,77 @@
         <div class="metric-card-label">Root Mean Square Error</div>
       </div>
     </div>
+<!-- ═══════════════════════════════════════════════════════════
+     SHAP EXPLAINABILITY SECTION
+     Shows recruiters and users that this is a real ML app
+     with proper model interpretability
+═══════════════════════════════════════════════════════════ -->
+<section class="shap-section" id="explainability">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Model Transparency</p>
+      <h2 class="section-title">Why These Predictions?</h2>
+      <p class="section-sub">
+        SHAP (SHapley Additive exPlanations) reveals exactly how much
+        each property feature contributes to the predicted price.
+        No black box — full transparency.
+      </p>
+    </div>
 
+    <div class="shap-layout glass-card">
+      <div class="shap-chart-wrap">
+        <p class="chart-title">
+          <i class="fa-solid fa-chart-bar"></i>
+          Global Feature Importance — Average Price Impact
+        </p>
+        <canvas id="shapChart" height="300"></canvas>
+      </div>
+
+      <div class="shap-explainer">
+        <h3>How to Read This Chart</h3>
+        <p>
+          Each bar shows how much that feature moves the predicted price
+          on average across all properties in the training data.
+        </p>
+        <div class="shap-items">
+          <div class="shap-item">
+            <i class="fa-solid fa-vector-square"></i>
+            <div>
+              <strong>Area</strong>
+              <span>Square footage is typically the strongest price driver</span>
+            </div>
+          </div>
+          <div class="shap-item">
+            <i class="fa-solid fa-star"></i>
+            <div>
+              <strong>Location Score</strong>
+              <span>Neighborhood quality has outsized impact on value</span>
+            </div>
+          </div>
+          <div class="shap-item">
+            <i class="fa-solid fa-calendar"></i>
+            <div>
+              <strong>Year Built</strong>
+              <span>Newer properties command premium prices</span>
+            </div>
+          </div>
+          <div class="shap-item">
+            <i class="fa-solid fa-house-circle-check"></i>
+            <div>
+              <strong>Condition</strong>
+              <span>Well-maintained homes sell significantly higher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="shap-badge">
+          <i class="fa-solid fa-shield-halved"></i>
+          Powered by SHAP — the industry standard for ML explainability
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Feature importance chart -->
     <div class="perf-chart-wrap reveal">
       <div class="section-label">Feature Importance</div>
