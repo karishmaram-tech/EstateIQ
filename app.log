@@ -84,3 +84,22 @@ werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not at
 [2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111505411] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
 [2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111512410] | Empty JSON received
 [2026-05-22 00:01:11] [WARNING] REQUEST [20260522000111521547] | Empty JSON received
+[2026-05-22 19:41:03] [WARNING] REQUEST [20260522194103570280] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 19:41:04] [WARNING] REQUEST [20260522194104054361] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 19:41:04] [WARNING] REQUEST [20260522194104521347] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 19:41:04] [WARNING] REQUEST [20260522194104774725] | Validation failed | ['Bedrooms must be between 1 and 20']
+[2026-05-22 19:41:04] [WARNING] REQUEST [20260522194104833967] | Validation failed | ['Bathrooms must be between 1 and 15']
+[2026-05-22 19:41:04] [WARNING] REQUEST [20260522194104853124] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-22 19:41:04] [WARNING] REQUEST [20260522194104938204] | Validation failed | ['Year built must be between 1800 and 2025']
+[2026-05-22 19:41:04] [WARNING] REQUEST [20260522194104964171] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 19:41:05] [WARNING] REQUEST [20260522194105051270] | Validation failed | ['Area must be between 1 and 20,000 sq ft']
+[2026-05-22 19:41:05] [WARNING] REQUEST [20260522194105151716] | Empty JSON received
+[2026-05-22 19:41:05] [WARNING] REQUEST [20260522194105191697] | Empty JSON received
+[2026-05-22 19:46:01] [INFO] Starting EstateIQ v1.0.0
+[2026-05-22 19:46:01] [INFO] Environment: development
+[2026-05-22 19:46:01] [INFO] Loading trained model from: model/house_price_model.pkl
+[2026-05-22 19:46:30] [INFO] Starting server on port 7860
+[2026-05-22 19:47:01] [DEBUG] Loaded real model metrics from training
+[2026-05-22 19:47:37] [INFO] REQUEST [20260522194737331255] | New prediction request received
+[2026-05-22 19:47:37] [DEBUG] REQUEST [20260522194737331255] | Raw input: {'area': 2398, 'bedrooms': 3, 'bathrooms': 2, 'stories': 2, 'parking': 2, 'mainroad': 'yes', 'prefarea': 'yes', 'furnishingstatus': 'furnished', 'airconditioning': 'yes', 'basement': 'no', 'guestroom': 'no', 'hotwaterheating': 'no'}
+[2026-05-22 19:47:38] [INFO] REQUEST [20260522194737331255] | SUCCESS | Price: $473,028 | Market: Above Average | Model: trained_model | Time: 913.52ms
