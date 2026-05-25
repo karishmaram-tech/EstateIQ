@@ -421,3 +421,17 @@ werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not at
 [2026-05-25 19:41:35] [INFO] [33mPress CTRL+C to quit[0m
 [2026-05-25 19:42:16] [INFO] 127.0.0.1 - - [25/May/2026 19:42:16] "GET / HTTP/1.1" 200 -
 [2026-05-25 19:42:52] [INFO] 127.0.0.1 - - [25/May/2026 19:42:52] "GET / HTTP/1.1" 200 -
+[2026-05-25 20:00:19] [INFO] App created: EstateIQ v1.0.0
+[2026-05-25 20:00:19] [INFO] Environment: development
+[2026-05-25 20:00:19] [INFO] Starting EstateIQ on port 7860
+[2026-05-25 20:00:19] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.103:7860
+[2026-05-25 20:00:19] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-25 20:00:40] [INFO] 127.0.0.1 - - [25/May/2026 20:00:40] "GET / HTTP/1.1" 200 -
+[2026-05-25 20:01:04] [INFO] PREDICT [20260525200104598464] | Request received
+[2026-05-25 20:01:21] [INFO] Trained model loaded from: model/house_price_model.pkl
+[2026-05-25 20:01:21] [DEBUG] Prediction: $463,736 | Market: Above Average | Model: trained_model
+[2026-05-25 20:01:21] [INFO] PREDICT [20260525200104598464] | SUCCESS | Price: $463,736 | Market: Above Average | Model: trained_model | Time: 16486.46ms
+[2026-05-25 20:01:21] [INFO] 127.0.0.1 - - [25/May/2026 20:01:21] "POST /api/v1/predict HTTP/1.1" 200 -
