@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+"""
+scripts/write_html.py
+Writes index.html without PowerShell quote corruption.
+Run: python scripts/write_html.py
+"""
+
+html = r"""<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
@@ -509,4 +515,10 @@ $('predictForm').addEventListener('submit', async function(e) {
 });
 </script>
 </body>
-</html>
+</html>"""
+
+with open("templates/index.html", "w", encoding="utf-8") as f:
+    f.write(html)
+
+print("Done - templates/index.html written successfully")
+print(f"File size: {len(html)} characters")

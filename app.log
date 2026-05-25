@@ -103,3 +103,321 @@ werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not at
 [2026-05-22 19:47:37] [INFO] REQUEST [20260522194737331255] | New prediction request received
 [2026-05-22 19:47:37] [DEBUG] REQUEST [20260522194737331255] | Raw input: {'area': 2398, 'bedrooms': 3, 'bathrooms': 2, 'stories': 2, 'parking': 2, 'mainroad': 'yes', 'prefarea': 'yes', 'furnishingstatus': 'furnished', 'airconditioning': 'yes', 'basement': 'no', 'guestroom': 'no', 'hotwaterheating': 'no'}
 [2026-05-22 19:47:38] [INFO] REQUEST [20260522194737331255] | SUCCESS | Price: $473,028 | Market: Above Average | Model: trained_model | Time: 913.52ms
+[2026-05-23 14:37:57] [INFO] Starting EstateIQ v1.0.0
+[2026-05-23 14:37:57] [INFO] Environment: development
+[2026-05-23 14:37:57] [INFO] Loading trained model from: model/house_price_model.pkl
+[2026-05-23 14:38:02] [INFO] Starting server on port 7860
+[2026-05-23 14:38:30] [DEBUG] Loaded real model metrics from training
+[2026-05-23 14:39:53] [DEBUG] Loaded real model metrics from training
+[2026-05-23 15:04:40] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 15:04:40] [INFO] Environment: development
+[2026-05-23 15:04:40] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 15:04:40] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-23 15:04:40] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 15:04:55] [INFO] 192.168.0.106 - - [23/May/2026 15:04:55] "GET / HTTP/1.1" 200 -
+[2026-05-23 15:04:56] [INFO] 192.168.0.106 - - [23/May/2026 15:04:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 15:05:10] [INFO] 192.168.0.106 - - [23/May/2026 15:05:10] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 15:05:14] [INFO] 192.168.0.106 - - [23/May/2026 15:05:14] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 15:05:17] [INFO] 192.168.0.106 - - [23/May/2026 15:05:17] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 15:08:10] [INFO] 192.168.0.106 - - [23/May/2026 15:08:10] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 15:08:11] [INFO] 192.168.0.106 - - [23/May/2026 15:08:11] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 15:08:12] [INFO] 192.168.0.106 - - [23/May/2026 15:08:12] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 16:55:50] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 16:55:50] [INFO] Environment: development
+[2026-05-23 16:55:50] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 16:55:50] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-23 16:55:50] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 16:56:09] [INFO] 192.168.0.106 - - [23/May/2026 16:56:09] "GET / HTTP/1.1" 200 -
+[2026-05-23 16:56:10] [INFO] 192.168.0.106 - - [23/May/2026 16:56:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 16:56:22] [INFO] 192.168.0.106 - - [23/May/2026 16:56:22] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 17:30:23] [INFO] 192.168.0.106 - - [23/May/2026 17:30:23] "GET / HTTP/1.1" 200 -
+[2026-05-23 17:30:33] [INFO] 192.168.0.106 - - [23/May/2026 17:30:33] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 17:31:49] [INFO] 192.168.0.106 - - [23/May/2026 17:31:49] "GET / HTTP/1.1" 200 -
+[2026-05-23 17:31:59] [INFO] 192.168.0.106 - - [23/May/2026 17:31:59] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 19:45:27] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 19:45:27] [INFO] Environment: development
+[2026-05-23 19:45:27] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 19:45:27] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 19:45:27] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 19:45:59] [INFO] 127.0.0.1 - - [23/May/2026 19:45:59] "GET / HTTP/1.1" 200 -
+[2026-05-23 19:46:03] [INFO] 127.0.0.1 - - [23/May/2026 19:46:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 19:46:19] [INFO] 127.0.0.1 - - [23/May/2026 19:46:19] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 19:54:03] [INFO] 127.0.0.1 - - [23/May/2026 19:54:03] "GET / HTTP/1.1" 200 -
+[2026-05-23 19:54:07] [INFO] 127.0.0.1 - - [23/May/2026 19:54:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 19:54:19] [INFO] 127.0.0.1 - - [23/May/2026 19:54:19] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 19:56:09] [INFO] PREDICT [20260523195609557041] | Request received
+[2026-05-23 19:56:17] [INFO] Trained model loaded from: model/house_price_model.pkl
+[2026-05-23 19:56:17] [DEBUG] Prediction: $512,894 | Market: Above Average | Model: trained_model
+[2026-05-23 19:56:17] [INFO] PREDICT [20260523195609557041] | SUCCESS | Price: $512,894 | Market: Above Average | Model: trained_model | Time: 7877.71ms
+[2026-05-23 19:56:17] [INFO] 127.0.0.1 - - [23/May/2026 19:56:17] "POST /api/v1/predict HTTP/1.1" 200 -
+[2026-05-23 19:56:50] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 19:56:50] [INFO] Environment: development
+[2026-05-23 19:56:50] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 19:56:50] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 19:56:50] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 19:57:11] [INFO] 127.0.0.1 - - [23/May/2026 19:57:11] "GET / HTTP/1.1" 200 -
+[2026-05-23 19:57:15] [INFO] 127.0.0.1 - - [23/May/2026 19:57:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 19:57:22] [INFO] 127.0.0.1 - - [23/May/2026 19:57:22] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 19:58:30] [INFO] PREDICT [20260523195830018643] | Request received
+[2026-05-23 19:58:30] [DEBUG] Prediction: $512,894 | Market: Above Average | Model: trained_model
+[2026-05-23 19:58:30] [INFO] PREDICT [20260523195830018643] | SUCCESS | Price: $512,894 | Market: Above Average | Model: trained_model | Time: 189.1ms
+[2026-05-23 19:58:30] [INFO] 127.0.0.1 - - [23/May/2026 19:58:30] "POST /api/v1/predict HTTP/1.1" 200 -
+[2026-05-23 20:03:44] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 20:03:44] [INFO] Environment: development
+[2026-05-23 20:03:44] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 20:03:44] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 20:03:45] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 20:13:16] [INFO] 127.0.0.1 - - [23/May/2026 20:13:16] "GET / HTTP/1.1" 200 -
+[2026-05-23 20:13:20] [INFO] 127.0.0.1 - - [23/May/2026 20:13:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 20:13:27] [INFO] 127.0.0.1 - - [23/May/2026 20:13:27] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 20:15:15] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 20:15:15] [INFO] Environment: development
+[2026-05-23 20:15:15] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 20:15:15] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 20:15:15] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 20:15:21] [INFO] 127.0.0.1 - - [23/May/2026 20:15:21] "GET / HTTP/1.1" 200 -
+[2026-05-23 20:15:25] [INFO] 127.0.0.1 - - [23/May/2026 20:15:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 20:15:33] [INFO] 127.0.0.1 - - [23/May/2026 20:15:33] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 20:19:39] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 20:19:39] [INFO] Environment: development
+[2026-05-23 20:19:39] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 20:19:39] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 20:19:39] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 20:19:46] [INFO] 127.0.0.1 - - [23/May/2026 20:19:46] "GET / HTTP/1.1" 200 -
+[2026-05-23 20:19:48] [INFO] 127.0.0.1 - - [23/May/2026 20:19:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 20:19:54] [INFO] 127.0.0.1 - - [23/May/2026 20:19:54] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 20:22:22] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 20:22:22] [INFO] Environment: development
+[2026-05-23 20:22:22] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 20:22:22] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 20:22:22] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 20:22:27] [INFO] 127.0.0.1 - - [23/May/2026 20:22:27] "GET / HTTP/1.1" 200 -
+[2026-05-23 20:22:28] [INFO] 127.0.0.1 - - [23/May/2026 20:22:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 20:22:36] [INFO] 127.0.0.1 - - [23/May/2026 20:22:36] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 20:24:20] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 20:24:20] [INFO] Environment: development
+[2026-05-23 20:24:20] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 20:24:20] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 20:24:20] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 20:24:25] [INFO] 127.0.0.1 - - [23/May/2026 20:24:25] "GET / HTTP/1.1" 200 -
+[2026-05-23 20:24:26] [INFO] 127.0.0.1 - - [23/May/2026 20:24:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 20:24:35] [INFO] 127.0.0.1 - - [23/May/2026 20:24:35] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 20:26:34] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 20:26:34] [INFO] Environment: development
+[2026-05-23 20:26:34] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 20:26:34] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 20:26:34] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 20:26:39] [INFO] 127.0.0.1 - - [23/May/2026 20:26:39] "GET / HTTP/1.1" 200 -
+[2026-05-23 20:26:40] [INFO] 127.0.0.1 - - [23/May/2026 20:26:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 20:26:51] [INFO] 127.0.0.1 - - [23/May/2026 20:26:51] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-23 20:30:41] [INFO] 127.0.0.1 - - [23/May/2026 20:30:41] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-05-23 20:32:59] [INFO] App created: EstateIQ v1.0.0
+[2026-05-23 20:32:59] [INFO] Environment: development
+[2026-05-23 20:32:59] [INFO] Starting EstateIQ on port 7860
+[2026-05-23 20:32:59] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://10.108.185.192:7860
+[2026-05-23 20:32:59] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-23 20:33:06] [INFO] 127.0.0.1 - - [23/May/2026 20:33:06] "GET / HTTP/1.1" 200 -
+[2026-05-23 20:33:08] [INFO] 127.0.0.1 - - [23/May/2026 20:33:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-23 20:33:18] [INFO] 127.0.0.1 - - [23/May/2026 20:33:18] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:03:49] [INFO] 127.0.0.1 - - [24/May/2026 13:03:49] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:03:52] [INFO] 127.0.0.1 - - [24/May/2026 13:03:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-24 13:09:28] [INFO] 127.0.0.1 - - [24/May/2026 13:09:28] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:11:48] [INFO] 127.0.0.1 - - [24/May/2026 13:11:48] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:12:01] [INFO] 127.0.0.1 - - [24/May/2026 13:12:01] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:13:05] [INFO] 127.0.0.1 - - [24/May/2026 13:13:05] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:13:12] [INFO] 127.0.0.1 - - [24/May/2026 13:13:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-24 13:13:40] [INFO] 127.0.0.1 - - [24/May/2026 13:13:40] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:14:14] [INFO] PREDICT [20260524131414890373] | Request received
+[2026-05-24 13:14:14] [DEBUG] Prediction: $512,894 | Market: Above Average | Model: trained_model
+[2026-05-24 13:14:14] [INFO] PREDICT [20260524131414890373] | SUCCESS | Price: $512,894 | Market: Above Average | Model: trained_model | Time: 81.01ms
+[2026-05-24 13:14:14] [INFO] 127.0.0.1 - - [24/May/2026 13:14:14] "POST /api/v1/predict HTTP/1.1" 200 -
+[2026-05-24 13:15:48] [INFO] 127.0.0.1 - - [24/May/2026 13:15:48] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:16:04] [INFO] 127.0.0.1 - - [24/May/2026 13:16:04] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:17:53] [INFO] 127.0.0.1 - - [24/May/2026 13:17:53] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-05-24 13:18:48] [INFO] 127.0.0.1 - - [24/May/2026 13:18:48] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:18:51] [INFO] 127.0.0.1 - - [24/May/2026 13:18:51] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:19:28] [INFO] 127.0.0.1 - - [24/May/2026 13:19:28] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:22:56] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:22:56] [INFO] Environment: development
+[2026-05-24 13:22:56] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:22:57] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:22:57] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:23:04] [INFO] 127.0.0.1 - - [24/May/2026 13:23:04] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:23:09] [INFO] 127.0.0.1 - - [24/May/2026 13:23:09] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:23:10] [INFO] 127.0.0.1 - - [24/May/2026 13:23:10] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-05-24 13:23:20] [INFO] 127.0.0.1 - - [24/May/2026 13:23:20] "[33mPOST /predict HTTP/1.1[0m" 404 -
+[2026-05-24 13:24:09] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:24:09] [INFO] Environment: development
+[2026-05-24 13:24:09] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:24:09] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:24:09] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:25:01] [INFO] 127.0.0.1 - - [24/May/2026 13:25:01] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:27:43] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:27:43] [INFO] Environment: development
+[2026-05-24 13:27:43] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:27:43] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:27:43] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:29:16] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:29:16] [INFO] Environment: development
+[2026-05-24 13:29:16] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:29:16] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:29:16] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:30:00] [INFO] 127.0.0.1 - - [24/May/2026 13:30:00] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:30:46] [INFO] 127.0.0.1 - - [24/May/2026 13:30:46] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-05-24 13:32:55] [INFO] 127.0.0.1 - - [24/May/2026 13:32:55] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-05-24 13:35:43] [INFO] 127.0.0.1 - - [24/May/2026 13:35:43] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-05-24 13:43:17] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:43:17] [INFO] Environment: development
+[2026-05-24 13:43:17] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:43:17] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:43:17] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:43:39] [INFO] 127.0.0.1 - - [24/May/2026 13:43:39] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:43:59] [INFO] 127.0.0.1 - - [24/May/2026 13:43:59] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:44:01] [INFO] 127.0.0.1 - - [24/May/2026 13:44:01] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:49:56] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:49:56] [INFO] Environment: development
+[2026-05-24 13:49:56] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:49:57] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:49:57] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:50:03] [INFO] 127.0.0.1 - - [24/May/2026 13:50:03] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:50:12] [INFO] 127.0.0.1 - - [24/May/2026 13:50:12] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:50:14] [INFO] 127.0.0.1 - - [24/May/2026 13:50:14] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:55:09] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:55:09] [INFO] Environment: development
+[2026-05-24 13:55:09] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:55:09] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:55:09] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:55:19] [INFO] 127.0.0.1 - - [24/May/2026 13:55:19] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:55:22] [INFO] 127.0.0.1 - - [24/May/2026 13:55:22] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:55:39] [INFO] 127.0.0.1 - - [24/May/2026 13:55:39] "GET / HTTP/1.1" 200 -
+[2026-05-24 13:58:29] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 13:58:29] [INFO] Environment: development
+[2026-05-24 13:58:29] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 13:58:29] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 13:58:29] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 13:58:37] [INFO] 127.0.0.1 - - [24/May/2026 13:58:37] "GET / HTTP/1.1" 200 -
+[2026-05-24 14:09:10] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 14:09:10] [INFO] Environment: development
+[2026-05-24 14:09:10] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 14:09:11] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 14:09:11] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 14:09:16] [INFO] 127.0.0.1 - - [24/May/2026 14:09:16] "GET / HTTP/1.1" 200 -
+[2026-05-24 14:09:37] [INFO] 127.0.0.1 - - [24/May/2026 14:09:37] "GET / HTTP/1.1" 200 -
+[2026-05-24 14:09:59] [INFO] 127.0.0.1 - - [24/May/2026 14:09:59] "GET / HTTP/1.1" 200 -
+[2026-05-24 14:11:36] [INFO] 127.0.0.1 - - [24/May/2026 14:11:36] "GET / HTTP/1.1" 200 -
+[2026-05-24 18:29:37] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 18:29:37] [INFO] Environment: development
+[2026-05-24 18:29:37] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 18:29:38] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 18:29:38] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 18:29:57] [INFO] 127.0.0.1 - - [24/May/2026 18:29:57] "GET / HTTP/1.1" 200 -
+[2026-05-24 18:34:51] [INFO] App created: EstateIQ v1.0.0
+[2026-05-24 18:34:51] [INFO] Environment: development
+[2026-05-24 18:34:51] [INFO] Starting EstateIQ on port 7860
+[2026-05-24 18:34:51] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.106:7860
+[2026-05-24 18:34:51] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-24 18:35:10] [INFO] 127.0.0.1 - - [24/May/2026 18:35:10] "GET / HTTP/1.1" 200 -
+[2026-05-24 18:35:41] [INFO] 127.0.0.1 - - [24/May/2026 18:35:41] "GET / HTTP/1.1" 200 -
+[2026-05-24 18:36:09] [INFO] 127.0.0.1 - - [24/May/2026 18:36:09] "GET / HTTP/1.1" 200 -
+[2026-05-25 11:30:01] [INFO] App created: EstateIQ v1.0.0
+[2026-05-25 11:30:01] [INFO] Environment: development
+[2026-05-25 11:30:01] [INFO] Starting EstateIQ on port 7860
+[2026-05-25 11:30:02] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.103:7860
+[2026-05-25 11:30:02] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-25 11:30:28] [INFO] 127.0.0.1 - - [25/May/2026 11:30:28] "GET / HTTP/1.1" 200 -
+[2026-05-25 11:35:18] [INFO] 127.0.0.1 - - [25/May/2026 11:35:18] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-05-25 11:48:03] [INFO] App created: EstateIQ v1.0.0
+[2026-05-25 11:48:03] [INFO] Environment: development
+[2026-05-25 11:48:03] [INFO] Starting EstateIQ on port 7860
+[2026-05-25 11:48:03] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.103:7860
+[2026-05-25 11:48:03] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-25 11:49:05] [INFO] 127.0.0.1 - - [25/May/2026 11:49:05] "GET / HTTP/1.1" 200 -
+[2026-05-25 11:49:18] [INFO] 127.0.0.1 - - [25/May/2026 11:49:18] "GET / HTTP/1.1" 200 -
+[2026-05-25 13:34:50] [INFO] 127.0.0.1 - - [25/May/2026 13:34:50] "GET / HTTP/1.1" 200 -
+[2026-05-25 13:39:05] [INFO] 127.0.0.1 - - [25/May/2026 13:39:05] "GET / HTTP/1.1" 200 -
+[2026-05-25 19:25:58] [INFO] 127.0.0.1 - - [25/May/2026 19:25:58] "GET / HTTP/1.1" 200 -
+[2026-05-25 19:35:57] [INFO] 127.0.0.1 - - [25/May/2026 19:35:57] "GET / HTTP/1.1" 200 -
+[2026-05-25 19:36:06] [INFO] 127.0.0.1 - - [25/May/2026 19:36:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-05-25 19:37:30] [INFO] 127.0.0.1 - - [25/May/2026 19:37:30] "GET / HTTP/1.1" 200 -
+[2026-05-25 19:41:34] [INFO] App created: EstateIQ v1.0.0
+[2026-05-25 19:41:34] [INFO] Environment: development
+[2026-05-25 19:41:34] [INFO] Starting EstateIQ on port 7860
+[2026-05-25 19:41:35] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7860
+ * Running on http://192.168.0.103:7860
+[2026-05-25 19:41:35] [INFO] [33mPress CTRL+C to quit[0m
+[2026-05-25 19:42:16] [INFO] 127.0.0.1 - - [25/May/2026 19:42:16] "GET / HTTP/1.1" 200 -
+[2026-05-25 19:42:52] [INFO] 127.0.0.1 - - [25/May/2026 19:42:52] "GET / HTTP/1.1" 200 -
