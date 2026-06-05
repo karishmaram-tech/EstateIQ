@@ -3,357 +3,499 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="EstateIQ - AI-powered house price prediction using machine learning"/>
 <title>EstateIQ - AI House Price Prediction</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Cormorant+Garamond:wght@600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-:root{--bg:#0a0b0f;--bg3:#161924;--glass:rgba(22,25,36,0.7);--border:rgba(255,255,255,0.07);--text:#e8e6e1;--text2:#9d9a91;--accent:#c9a84c;--accent2:#e8c97a;--aglow:rgba(201,168,76,0.25);--green:#4caf7d;--blue:#5b9cf6;--red:#f27070;--amber:#f5a623;--r:16px;--tr:0.3s ease}
-[data-theme=light]{--bg:#f5f3ee;--bg3:#e4dfd3;--glass:rgba(255,255,255,0.75);--border:rgba(0,0,0,0.08);--text:#1a1714;--text2:#5c5650;--accent:#a07830;--aglow:rgba(160,120,48,0.15)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background var(--tr),color var(--tr)}
-h1,h2,h3{font-family:'Cormorant Garamond',serif;line-height:1.2}
-.container{max-width:1100px;margin:0 auto;padding:0 24px}
-.glass{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);backdrop-filter:blur(20px)}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;transition:background var(--tr)}
-nav.scrolled{background:var(--glass);backdrop-filter:blur(20px)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:60px;gap:24px}
-.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
-.logo-icon{width:30px;height:30px;background:var(--accent);border-radius:8px;display:grid;place-items:center;font-size:0.8rem;color:#000}
-.nav-links{display:flex;gap:24px;margin-left:auto}
-.nav-links a{color:var(--text2);text-decoration:none;font-size:0.9rem;transition:color var(--tr)}
-.nav-links a:hover{color:var(--accent)}
-.theme-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);width:36px;height:36px;border-radius:50%;cursor:pointer;display:grid;place-items:center;transition:all var(--tr)}
-.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
-.hero{min-height:100vh;display:flex;align-items:center;padding:80px 24px 40px;text-align:center;position:relative;overflow:hidden}
-.orb{position:fixed;border-radius:50%;filter:blur(100px);opacity:0.3;z-index:-1}
-.orb1{width:500px;height:500px;background:radial-gradient(circle,#c9a84c,transparent);top:-100px;left:-100px}
-.orb2{width:400px;height:400px;background:radial-gradient(circle,#5b4fa0,transparent);bottom:-50px;right:-50px}
-.hero-inner{max-width:640px;margin:0 auto}
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--border);padding:5px 14px;border-radius:999px;font-size:0.72rem;color:var(--text2);margin-bottom:24px}
-.dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);margin-bottom:16px}
-.hero h1 em{font-style:italic;color:var(--accent2)}
-.hero p{font-size:1rem;color:var(--text2);margin-bottom:32px;line-height:1.7}
-.ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;padding:12px 24px;border-radius:999px;font-weight:600;text-decoration:none;transition:all var(--tr)}
-.btn-p:hover{background:var(--accent2);transform:translateY(-2px)}
-.btn-g{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text2);padding:12px 24px;border-radius:999px;border:1px solid var(--border);text-decoration:none;transition:all var(--tr)}
-.btn-g:hover{border-color:var(--accent);color:var(--accent)}
-.stats{display:flex;gap:24px;justify-content:center;align-items:center}
-.stat{display:flex;flex-direction:column}
-.sn{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--accent);line-height:1}
-.sl{font-size:0.75rem;color:var(--text2);margin-top:4px}
-.sdiv{width:1px;height:32px;background:var(--border)}
-section{padding:100px 0}
-.sec-hd{text-align:center;margin-bottom:48px}
-.eyebrow{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-.sec-title{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:14px}
-.sec-sub{color:var(--text2);max-width:480px;margin:0 auto}
-.predict-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-.form-card{padding:32px}
-.form-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--text2)}
-.sample-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;padding:7px 14px;background:var(--aglow);border:1px solid var(--accent);border-radius:999px;color:var(--accent);cursor:pointer;transition:all var(--tr)}
-.sample-btn:hover{background:var(--accent);color:#000}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fg{margin-bottom:20px;display:flex;flex-direction:column}
-label{font-size:0.8rem;color:var(--text2);margin-bottom:7px;display:flex;align-items:center;gap:6px}
-label i{color:var(--accent);font-size:0.72rem}
-.ln{margin-left:auto;font-size:0.68rem;color:var(--text2)}
-input[type=number],select{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.92rem;outline:none;transition:border-color var(--tr);-moz-appearance:textfield;width:100%}
-input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
-input[type=number]:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--aglow)}
-select{appearance:none;cursor:pointer}
-.stepper{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color var(--tr)}
-.stepper:focus-within{border-color:var(--accent)}
-.sb{width:40px;height:42px;background:transparent;border:none;color:var(--text2);font-size:1.1rem;cursor:pointer;transition:all var(--tr)}
-.sb:hover{background:var(--aglow);color:var(--accent)}
-.stepper input{border:none;background:transparent;text-align:center;flex:1;padding:11px 0;color:var(--text);font-weight:600;pointer-events:none}
-.rs{-webkit-appearance:none;appearance:none;width:100%;height:5px;background:var(--bg3);border-radius:3px;outline:none;cursor:pointer}
-.rs::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
-.rl{display:flex;justify-content:space-between;align-items:center;margin-top:5px;font-size:0.7rem;color:var(--text2)}
-.rv{font-size:0.82rem;color:var(--accent);background:var(--aglow);padding:2px 9px;border-radius:999px}
-.rv.g{color:var(--green);background:rgba(76,175,125,0.15)}
-.chips{display:flex;gap:10px;flex-wrap:wrap}
-.chip{cursor:pointer}
-.chip input{display:none}
-.chip-in{display:flex;align-items:center;gap:5px;padding:9px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;font-size:0.82rem;color:var(--text2);transition:all var(--tr);user-select:none}
-.chip input:checked+.chip-in{background:var(--aglow);border-color:var(--accent);color:var(--accent)}
-.pred-btn{width:100%;padding:15px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:10px;color:#000;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all var(--tr);box-shadow:0 8px 20px var(--aglow);margin-top:4px}
-.pred-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px var(--aglow)}
-.pred-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
-.result-panel{position:sticky;top:80px}
-.placeholder{min-height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;border:1px dashed var(--border);border-radius:var(--r);padding:40px;color:var(--text2)}
-.placeholder i{font-size:2.5rem;opacity:0.3}
-.rcard{padding:28px}
-.rhd{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.rlabel{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text2)}
-.rmkt{font-size:0.75rem;padding:4px 10px;border-radius:999px;font-weight:600}
-.rmkt.blue{background:rgba(91,156,246,.15);color:var(--blue)}
-.rmkt.green{background:rgba(76,175,125,.15);color:var(--green)}
-.rmkt.amber{background:rgba(245,166,35,.15);color:var(--amber)}
-.rmkt.red{background:rgba(242,112,112,.15);color:var(--red)}
-.rprice{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:20px}
-.rrange{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin-bottom:20px}
-.ri{display:flex;flex-direction:column;gap:2px}
-.ril{font-size:0.68rem;color:var(--text2)}
-.riv{font-size:0.82rem;color:var(--text2)}
-.rbar{background:var(--bg3);border-radius:4px;height:7px;overflow:hidden}
-.rbar-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--accent),var(--red));border-radius:4px;width:50%}
-.rmeta{display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:20px}
-.rmi{display:flex;align-items:baseline;gap:7px;flex:1}
-.rmi i{color:var(--accent);font-size:0.75rem}
-.rmi span{font-size:0.95rem;font-weight:500}
-.rmi small{font-size:0.7rem;color:var(--text2)}
-.rmdiv{width:1px;height:28px;background:var(--border)}
-.chart-wrap{margin-bottom:20px}
-.ct{font-size:0.8rem;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:7px}
-.reset-btn{width:100%;padding:11px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:'DM Sans',sans-serif;font-size:0.87rem;cursor:pointer;transition:all var(--tr);display:flex;align-items:center;justify-content:center;gap:7px}
-.reset-btn:hover{border-color:var(--accent);color:var(--accent)}
-.errcard{padding:36px;text-align:center}
-.erri{font-size:2.2rem;color:var(--red);margin-bottom:12px}
-.errl{list-style:none;margin-bottom:20px;display:flex;flex-direction:column;gap:6px}
-.errl li{font-size:0.83rem;color:var(--red);background:rgba(242,112,112,0.08);padding:7px 14px;border-radius:8px}
-.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:28px}
-.mc{padding:28px 20px;text-align:center;transition:all var(--tr)}
-.mc:hover{transform:translateY(-4px);border-color:var(--accent)}
-.mring{position:relative;width:90px;height:90px;margin:0 auto 16px}
-.mring svg{transform:rotate(-90deg)}
-.rb{fill:none;stroke:var(--bg3);stroke-width:7}
-.rf{fill:none;stroke-width:7;stroke-linecap:round}
-.rf.r2{stroke:var(--accent)}.rf.mp{stroke:var(--green)}.rf.rm{stroke:var(--blue)}.rf.cv{stroke:var(--amber)}
-.rl2{position:absolute;inset:0;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700}
-.mc h4{font-size:0.9rem;margin-bottom:5px}
-.mc p{font-size:0.75rem;color:var(--text2)}
-.algoc{padding:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.ai{display:flex;gap:12px;align-items:flex-start}
-.ai i{color:var(--accent);font-size:1rem;margin-top:2px}
-.ai div{display:flex;flex-direction:column;gap:3px}
-.ai strong{font-size:0.8rem;color:var(--text2)}
-.ai span{font-size:0.83rem}
-footer{border-top:1px solid var(--border);padding:40px 24px}
-.fi{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
-.fl{display:flex;gap:20px}
-.fl a{display:inline-flex;align-items:center;gap:5px;color:var(--text2);text-decoration:none;font-size:0.85rem;transition:color var(--tr)}
-.fl a:hover{color:var(--accent)}
-.fc{font-size:0.75rem;color:var(--text2)}
-@media(max-width:768px){.predict-layout{grid-template-columns:1fr}.result-panel{position:static}.frow{grid-template-columns:1fr}.mgrid{grid-template-columns:repeat(2,1fr)}.algoc{grid-template-columns:1fr}.nav-links{display:none}}
+:root {
+  --bg: #0a0b0f; --bg2: #10121a; --bg3: #161924;
+  --glass: rgba(22,25,36,0.7); --border: rgba(255,255,255,0.07);
+  --text: #e8e6e1; --text2: #9d9a91; --text3: #5c5a54;
+  --accent: #c9a84c; --accent2: #e8c97a; --aglow: rgba(201,168,76,0.25);
+  --green: #4caf7d; --blue: #5b9cf6; --red: #f27070; --amber: #f5a623;
+  --r: 16px; --tr: 0.3s ease;
+}
+[data-theme=light] {
+  --bg: #f5f3ee; --bg2: #ede9e0; --bg3: #e4dfd3;
+  --glass: rgba(255,255,255,0.75); --border: rgba(0,0,0,0.08);
+  --text: #1a1714; --text2: #5c5650; --accent: #a07830; --aglow: rgba(160,120,48,0.15);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; transition: background var(--tr), color var(--tr); }
+h1,h2,h3 { font-family: 'Cormorant Garamond', serif; line-height: 1.2; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.glass { background: var(--glass); border: 1px solid var(--border); border-radius: var(--r); backdrop-filter: blur(20px); }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; transition: background var(--tr); }
+nav.scrolled { background: var(--glass); backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 60px; gap: 24px; }
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.logo-icon { width: 30px; height: 30px; background: var(--accent); border-radius: 8px; display: grid; place-items: center; font-size: 0.8rem; color: #000; }
+.nav-links { display: flex; gap: 24px; margin-left: auto; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; transition: color var(--tr); }
+.nav-links a:hover { color: var(--accent); }
+.theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: grid; place-items: center; transition: all var(--tr); }
+.theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
+.orb { position: fixed; border-radius: 50%; filter: blur(100px); opacity: 0.3; z-index: -1; }
+.orb1 { width: 500px; height: 500px; background: radial-gradient(circle, #c9a84c, transparent); top: -100px; left: -100px; }
+.orb2 { width: 400px; height: 400px; background: radial-gradient(circle, #5b4fa0, transparent); bottom: -50px; right: -50px; }
+.hero-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.badge { display: inline-flex; align-items: center; gap: 8px; background: var(--glass); border: 1px solid var(--border); padding: 5px 14px; border-radius: 999px; font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text2); margin-bottom: 24px; }
+.dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 16px; }
+.hero h1 em { font-style: italic; color: var(--accent2); }
+.hero p { font-size: 1rem; color: var(--text2); margin-bottom: 32px; line-height: 1.7; }
+.ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+.btn-p { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #000; padding: 12px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: all var(--tr); box-shadow: 0 0 20px var(--aglow); }
+.btn-p:hover { background: var(--accent2); transform: translateY(-2px); }
+.btn-g { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text2); padding: 12px 24px; border-radius: 999px; border: 1px solid var(--border); text-decoration: none; transition: all var(--tr); }
+.btn-g:hover { border-color: var(--accent); color: var(--accent); }
+.stats { display: flex; gap: 24px; justify-content: center; align-items: center; }
+.stat { display: flex; flex-direction: column; }
+.sn { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; }
+.sl { font-size: 0.75rem; color: var(--text2); margin-top: 4px; }
+.sdiv { width: 1px; height: 32px; background: var(--border); }
+
+/* SECTIONS */
+section { padding: 100px 0; }
+.sec-hd { text-align: center; margin-bottom: 48px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.sec-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 14px; }
+.sec-sub { color: var(--text2); max-width: 480px; margin: 0 auto; }
+
+/* PREDICT */
+.predict-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+.form-card { padding: 32px; }
+.form-hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--text2); }
+.sample-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; padding: 7px 14px; background: var(--aglow); border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); cursor: pointer; transition: all var(--tr); }
+.sample-btn:hover { background: var(--accent); color: #000; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fg { margin-bottom: 20px; display: flex; flex-direction: column; }
+label { font-size: 0.8rem; color: var(--text2); margin-bottom: 7px; display: flex; align-items: center; gap: 6px; }
+label i { color: var(--accent); font-size: 0.72rem; }
+.ln { margin-left: auto; font-size: 0.68rem; color: var(--text2); }
+input[type=number], select { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 11px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; outline: none; transition: border-color var(--tr); width: 100%; -moz-appearance: textfield; }
+input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+input[type=number]:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--aglow); }
+select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239d9a91' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.stepper { display: flex; align-items: center; background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color var(--tr); }
+.stepper:focus-within { border-color: var(--accent); }
+.sb { width: 40px; height: 42px; background: transparent; border: none; color: var(--text2); font-size: 1.1rem; cursor: pointer; transition: all var(--tr); }
+.sb:hover { background: var(--aglow); color: var(--accent); }
+.stepper input { border: none; background: transparent; text-align: center; flex: 1; padding: 11px 0; color: var(--text); font-weight: 600; pointer-events: none; }
+.rs { -webkit-appearance: none; appearance: none; width: 100%; height: 5px; background: var(--bg3); border-radius: 3px; outline: none; cursor: pointer; }
+.rs::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: var(--accent); border-radius: 50%; cursor: pointer; }
+.rl { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; font-size: 0.7rem; color: var(--text2); }
+.rv { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--accent); background: var(--aglow); padding: 2px 9px; border-radius: 999px; }
+.rv.g { color: var(--green); background: rgba(76,175,125,0.15); }
+.chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip { cursor: pointer; }
+.chip input { display: none; }
+.chip-in { display: flex; align-items: center; gap: 5px; padding: 9px 16px; background: var(--bg3); border: 1px solid var(--border); border-radius: 999px; font-size: 0.82rem; color: var(--text2); transition: all var(--tr); user-select: none; }
+.chip input:checked + .chip-in { background: var(--aglow); border-color: var(--accent); color: var(--accent); }
+.pred-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; border-radius: 10px; color: #000; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all var(--tr); box-shadow: 0 8px 20px var(--aglow); margin-top: 4px; }
+.pred-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px var(--aglow); }
+.pred-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* RESULT */
+.result-panel { position: sticky; top: 80px; }
+.placeholder { min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 16px; border: 1px dashed var(--border); border-radius: var(--r); padding: 40px; color: var(--text2); }
+.placeholder i { font-size: 2.5rem; opacity: 0.3; }
+.rcard { padding: 28px; }
+.rhd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.rlabel { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text2); }
+.rmkt { font-size: 0.75rem; padding: 4px 10px; border-radius: 999px; font-weight: 600; }
+.rmkt.blue { background: rgba(91,156,246,.15); color: var(--blue); }
+.rmkt.green { background: rgba(76,175,125,.15); color: var(--green); }
+.rmkt.amber { background: rgba(245,166,35,.15); color: var(--amber); }
+.rmkt.red { background: rgba(242,112,112,.15); color: var(--red); }
+.rprice { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 20px; }
+.rrange { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; margin-bottom: 20px; }
+.ri { display: flex; flex-direction: column; gap: 2px; }
+.ril { font-size: 0.68rem; color: var(--text2); }
+.riv { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--text2); }
+.rbar { background: var(--bg3); border-radius: 4px; height: 7px; overflow: hidden; }
+.rbar-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--accent), var(--red)); border-radius: 4px; width: 50%; }
+.rmeta { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.rmi { display: flex; align-items: baseline; gap: 7px; flex: 1; }
+.rmi i { color: var(--accent); font-size: 0.75rem; }
+.rmi span { font-size: 0.95rem; font-weight: 500; }
+.rmi small { font-size: 0.7rem; color: var(--text2); }
+.rmdiv { width: 1px; height: 28px; background: var(--border); }
+.chart-wrap { margin-bottom: 20px; }
+.ct { font-size: 0.8rem; color: var(--text2); margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+.reset-btn { width: 100%; padding: 11px; background: transparent; border: 1px solid var(--border); border-radius: 10px; color: var(--text2); font-family: 'DM Sans', sans-serif; font-size: 0.87rem; cursor: pointer; transition: all var(--tr); display: flex; align-items: center; justify-content: center; gap: 7px; }
+.reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+.errcard { padding: 36px; text-align: center; }
+.erri { font-size: 2.2rem; color: var(--red); margin-bottom: 12px; }
+.errl { list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px; }
+.errl li { font-size: 0.83rem; color: var(--red); background: rgba(242,112,112,0.08); padding: 7px 14px; border-radius: 8px; }
+
+/* METRICS */
+.mgrid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-bottom: 28px; }
+.mc { padding: 28px 20px; text-align: center; transition: all var(--tr); }
+.mc:hover { transform: translateY(-4px); border-color: var(--accent); }
+.mring { position: relative; width: 90px; height: 90px; margin: 0 auto 16px; }
+.mring svg { transform: rotate(-90deg); }
+.rb { fill: none; stroke: var(--bg3); stroke-width: 7; }
+.rf { fill: none; stroke-width: 7; stroke-linecap: round; }
+.rf.r2 { stroke: var(--accent); } .rf.mp { stroke: var(--green); } .rf.rm { stroke: var(--blue); } .rf.cv { stroke: var(--amber); }
+.rl2 { position: absolute; inset: 0; display: grid; place-items: center; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; }
+.mc h4 { font-size: 0.9rem; margin-bottom: 5px; }
+.mc p { font-size: 0.75rem; color: var(--text2); }
+.algoc { padding: 28px; display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.ai { display: flex; gap: 12px; align-items: flex-start; }
+.ai i { color: var(--accent); font-size: 1rem; margin-top: 2px; }
+.ai div { display: flex; flex-direction: column; gap: 3px; }
+.ai strong { font-size: 0.8rem; color: var(--text2); }
+.ai span { font-size: 0.83rem; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 40px 24px; }
+.fi { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.fl { display: flex; gap: 20px; }
+.fl a { display: inline-flex; align-items: center; gap: 5px; color: var(--text2); text-decoration: none; font-size: 0.85rem; transition: color var(--tr); }
+.fl a:hover { color: var(--accent); }
+.fc { font-size: 0.75rem; color: var(--text2); }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+@media (max-width: 768px) {
+  .predict-layout { grid-template-columns: 1fr; }
+  .result-panel { position: static; }
+  .frow { grid-template-columns: 1fr; }
+  .mgrid { grid-template-columns: repeat(2,1fr); }
+  .algoc { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
 </style>
 </head>
 <body>
+
 <nav id="nav">
-<div class="nav-inner">
-<a href="#" class="logo"><span class="logo-icon"><i class="fa-solid fa-house-chimney"></i></span>Estate<span style="color:var(--accent)">IQ</span></a>
-<div class="nav-links"><a href="#predict">Predict</a><a href="#metrics">Metrics</a></div>
-<button class="theme-btn" id="themeBtn"><i class="fa-solid fa-moon" id="themeIco"></i></button>
-</div>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-house-chimney"></i></span>
+      Estate<span style="color:var(--accent)">IQ</span>
+    </a>
+    <div class="nav-links">
+      <a href="#predict">Predict</a>
+      <a href="#metrics">Metrics</a>
+    </div>
+    <button class="theme-btn" id="themeBtn">
+      <i class="fa-solid fa-moon" id="themeIco"></i>
+    </button>
+  </div>
 </nav>
+
 <section class="hero">
-<div class="orb orb1"></div><div class="orb orb2"></div>
-<div class="hero-inner container">
-<div class="badge"><span class="dot"></span>Machine Learning · Real Estate Intelligence</div>
-<h1>Know Your Home's<br/><em>True Worth</em></h1>
-<p>EstateIQ uses advanced machine learning to deliver instant, accurate house price predictions powered by real market data.</p>
-<div class="ctas">
-<a href="#predict" class="btn-p">Get Prediction <i class="fa-solid fa-arrow-right"></i></a>
-<a href="#metrics" class="btn-g">View Model Accuracy</a>
-</div>
-<div class="stats">
-<div class="stat"><span class="sn">{{ "%.1f"|format(metrics.accuracy) }}%</span><span class="sl">R2 Score</span></div>
-<div class="sdiv"></div>
-<div class="stat"><span class="sn">{{ "{:,}".format(metrics.train_size) }}</span><span class="sl">Properties Trained</span></div>
-<div class="sdiv"></div>
-<div class="stat"><span class="sn">{{ metrics.get('features', 10) }}</span><span class="sl">Features</span></div>
-</div>
-</div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-inner container">
+    <div class="badge"><span class="dot"></span>Machine Learning · Real Estate Intelligence</div>
+    <h1>Know Your Home's<br/><em>True Worth</em></h1>
+    <p>EstateIQ uses advanced machine learning to deliver instant, accurate house price predictions powered by real market data and trained on thousands of properties.</p>
+    <div class="ctas">
+      <a href="#predict" class="btn-p">Get Prediction <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#metrics" class="btn-g">View Model Accuracy</a>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <span class="sn">{{ "%.1f"|format(metrics.accuracy) }}%</span>
+        <span class="sl">R2 Score</span>
+      </div>
+      <div class="sdiv"></div>
+      <div class="stat">
+        <span class="sn">{{ "{:,}".format(metrics.train_size) }}</span>
+        <span class="sl">Properties Trained</span>
+      </div>
+      <div class="sdiv"></div>
+      <div class="stat">
+        <span class="sn">{{ metrics.get('features', 10) }}</span>
+        <span class="sl">Features</span>
+      </div>
+    </div>
+  </div>
 </section>
+
 <section id="predict">
-<div class="container">
-<div class="sec-hd">
-<p class="eyebrow">AI Prediction</p>
-<h2 class="sec-title">Price Your Property</h2>
-<p class="sec-sub">Enter your property details for an instant AI estimate.</p>
-</div>
-<div class="predict-layout">
-<div class="form-card glass">
-<div class="form-hd">
-<span><i class="fa-solid fa-sliders"></i> Property Details</span>
-<button class="sample-btn" id="sampleBtn"><i class="fa-solid fa-wand-magic-sparkles"></i> Sample</button>
-</div>
-<form id="predictForm" novalidate>
-<div class="frow">
-<div class="fg">
-<label for="area"><i class="fa-solid fa-vector-square"></i> Area (sq ft)</label>
-<input type="number" id="area" placeholder="e.g. 2100" min="100" max="20000" required/>
-</div>
-<div class="fg">
-<label for="floors"><i class="fa-solid fa-layer-group"></i> Floors</label>
-<select id="floors">
-<option value="1">1 Floor</option>
-<option value="2" selected>2 Floors</option>
-<option value="3">3 Floors</option>
-<option value="4">4+ Floors</option>
-</select>
-</div>
-</div>
-<div class="frow">
-<div class="fg">
-<label><i class="fa-solid fa-bed"></i> Bedrooms</label>
-<div class="stepper" id="sbeds">
-<button type="button" class="sb minus">-</button>
-<input type="number" id="bedrooms" value="3" min="1" max="20" readonly/>
-<button type="button" class="sb plus">+</button>
-</div>
-</div>
-<div class="fg">
-<label><i class="fa-solid fa-shower"></i> Bathrooms</label>
-<div class="stepper" id="sbaths">
-<button type="button" class="sb minus">-</button>
-<input type="number" id="bathrooms" value="2" min="1" max="15" readonly/>
-<button type="button" class="sb plus">+</button>
-</div>
-</div>
-</div>
-<div class="fg">
-<label for="year_built"><i class="fa-solid fa-calendar-days"></i> Year Built <span class="ln" id="ageL"></span></label>
-<input type="range" id="year_built" class="rs" min="1900" max="2025" value="2000"/>
-<div class="rl"><span>1900</span><span class="rv" id="yearV">2000</span><span>2025</span></div>
-</div>
-<div class="fg">
-<label for="loc"><i class="fa-solid fa-star"></i> Location Score <span class="ln">(1=rural 10=prime)</span></label>
-<input type="range" id="loc" class="rs" min="1" max="10" value="6"/>
-<div class="rl"><span>Rural</span><span class="rv" id="locV">6</span><span>Prime</span></div>
-</div>
-<div class="fg">
-<label for="cond"><i class="fa-solid fa-house-circle-check"></i> Condition <span class="ln" id="condL"></span></label>
-<input type="range" id="cond" class="rs" min="1" max="10" value="7"/>
-<div class="rl"><span>Poor</span><span class="rv g" id="condV">7</span><span>Excellent</span></div>
-</div>
-<div class="fg">
-<label><i class="fa-solid fa-star-of-life"></i> Amenities</label>
-<div class="chips">
-<label class="chip"><input type="checkbox" id="garage"/><span class="chip-in"><i class="fa-solid fa-car"></i> Garage</span></label>
-<label class="chip"><input type="checkbox" id="pool"/><span class="chip-in"><i class="fa-solid fa-water-ladder"></i> Pool</span></label>
-<label class="chip"><input type="checkbox" id="garden"/><span class="chip-in"><i class="fa-solid fa-seedling"></i> Garden</span></label>
-</div>
-</div>
-<button type="submit" class="pred-btn" id="predictBtn">
-<span id="btnText"><i class="fa-solid fa-sparkles"></i> Predict Price</span>
-<span id="btnLoad" hidden><i class="fa-solid fa-circle-notch fa-spin"></i> Analysing</span>
-</button>
-</form>
-</div>
-<div class="result-panel">
-<div class="placeholder glass" id="ph">
-<i class="fa-solid fa-house-chimney-window"></i>
-<p>Fill in the details and click <strong>Predict Price</strong> to see your estimate.</p>
-</div>
-<div class="rcard glass" id="rc" hidden>
-<div class="rhd"><span class="rlabel">AI Estimate</span><span class="rmkt" id="rmkt"></span></div>
-<div class="rprice" id="rprice"></div>
-<div class="rrange">
-<div class="ri"><span class="ril">Low</span><span class="riv" id="rlow"></span></div>
-<div class="rbar"><div class="rbar-fill"></div></div>
-<div class="ri"><span class="ril">High</span><span class="riv" id="rhigh"></span></div>
-</div>
-<div class="rmeta">
-<div class="rmi"><i class="fa-solid fa-ruler-combined"></i><span id="rpsf">-</span><small>per sq ft</small></div>
-<div class="rmdiv"></div>
-<div class="rmi"><i class="fa-solid fa-gauge-high"></i><span>92%</span><small>confidence</small></div>
-</div>
-<div class="chart-wrap"><p class="ct"><i class="fa-solid fa-chart-bar"></i> Feature Impact</p><canvas id="fc" height="160"></canvas></div>
-<button class="reset-btn" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> New Prediction</button>
-</div>
-<div class="errcard glass" id="ec" hidden>
-<div class="erri"><i class="fa-solid fa-triangle-exclamation"></i></div>
-<h3 style="margin-bottom:12px">Something went wrong</h3>
-<ul class="errl" id="errl"></ul>
-<button class="reset-btn" id="errReset"><i class="fa-solid fa-rotate-left"></i> Try Again</button>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="sec-hd">
+      <p class="eyebrow">AI Prediction</p>
+      <h2 class="sec-title">Price Your Property</h2>
+      <p class="sec-sub">Enter your property details for an instant AI estimate.</p>
+    </div>
+    <div class="predict-layout">
+
+      <div class="form-card glass">
+        <div class="form-hd">
+          <span><i class="fa-solid fa-sliders"></i> Property Details</span>
+          <button class="sample-btn" id="sampleBtn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Sample
+          </button>
+        </div>
+        <form id="predictForm" novalidate>
+
+          <div class="frow">
+            <div class="fg">
+              <label for="area"><i class="fa-solid fa-vector-square"></i> Area (sq ft)</label>
+              <input type="number" id="area" placeholder="e.g. 2100" min="100" max="20000" required/>
+            </div>
+            <div class="fg">
+              <label for="floors"><i class="fa-solid fa-layer-group"></i> Floors</label>
+              <select id="floors">
+                <option value="1">1 Floor</option>
+                <option value="2" selected>2 Floors</option>
+                <option value="3">3 Floors</option>
+                <option value="4">4+ Floors</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="fg">
+              <label><i class="fa-solid fa-bed"></i> Bedrooms</label>
+              <div class="stepper" id="sbeds">
+                <button type="button" class="sb minus">-</button>
+                <input type="number" id="bedrooms" value="3" min="1" max="20" readonly/>
+                <button type="button" class="sb plus">+</button>
+              </div>
+            </div>
+            <div class="fg">
+              <label><i class="fa-solid fa-shower"></i> Bathrooms</label>
+              <div class="stepper" id="sbaths">
+                <button type="button" class="sb minus">-</button>
+                <input type="number" id="bathrooms" value="2" min="1" max="15" readonly/>
+                <button type="button" class="sb plus">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label for="year_built">
+              <i class="fa-solid fa-calendar-days"></i> Year Built
+              <span class="ln" id="ageL"></span>
+            </label>
+            <input type="range" id="year_built" class="rs" min="1900" max="2025" value="2000"/>
+            <div class="rl">
+              <span>1900</span>
+              <span class="rv" id="yearV">2000</span>
+              <span>2025</span>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label for="loc">
+              <i class="fa-solid fa-star"></i> Location Score
+              <span class="ln">(1=rural, 10=prime)</span>
+            </label>
+            <input type="range" id="loc" class="rs" min="1" max="10" value="6"/>
+            <div class="rl">
+              <span>Rural</span>
+              <span class="rv" id="locV">6</span>
+              <span>Prime</span>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label for="cond">
+              <i class="fa-solid fa-house-circle-check"></i> Condition
+              <span class="ln" id="condL"></span>
+            </label>
+            <input type="range" id="cond" class="rs" min="1" max="10" value="7"/>
+            <div class="rl">
+              <span>Poor</span>
+              <span class="rv g" id="condV">7</span>
+              <span>Excellent</span>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label><i class="fa-solid fa-star-of-life"></i> Amenities</label>
+            <div class="chips">
+              <label class="chip">
+                <input type="checkbox" id="garage"/>
+                <span class="chip-in"><i class="fa-solid fa-car"></i> Garage</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" id="pool"/>
+                <span class="chip-in"><i class="fa-solid fa-water-ladder"></i> Pool</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" id="garden"/>
+                <span class="chip-in"><i class="fa-solid fa-seedling"></i> Garden</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="pred-btn" id="predictBtn">
+            <span id="btnText"><i class="fa-solid fa-sparkles"></i> Predict Price</span>
+            <span id="btnLoad" hidden><i class="fa-solid fa-circle-notch fa-spin"></i> Analysing...</span>
+          </button>
+
+        </form>
+      </div>
+
+      <div class="result-panel">
+        <div class="placeholder glass" id="ph">
+          <i class="fa-solid fa-house-chimney-window"></i>
+          <p>Fill in the details and click <strong>Predict Price</strong> to see your estimate.</p>
+        </div>
+
+        <div class="rcard glass" id="rc" hidden>
+          <div class="rhd">
+            <span class="rlabel">AI Estimate</span>
+            <span class="rmkt" id="rmkt"></span>
+          </div>
+          <div class="rprice" id="rprice"></div>
+          <div class="rrange">
+            <div class="ri"><span class="ril">Low</span><span class="riv" id="rlow"></span></div>
+            <div class="rbar"><div class="rbar-fill"></div></div>
+            <div class="ri"><span class="ril">High</span><span class="riv" id="rhigh"></span></div>
+          </div>
+          <div class="rmeta">
+            <div class="rmi">
+              <i class="fa-solid fa-ruler-combined"></i>
+              <span id="rpsf">-</span>
+              <small>per sq ft</small>
+            </div>
+            <div class="rmdiv"></div>
+            <div class="rmi">
+              <i class="fa-solid fa-gauge-high"></i>
+              <span>92%</span>
+              <small>confidence</small>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <p class="ct"><i class="fa-solid fa-chart-bar"></i> Feature Impact</p>
+            <canvas id="fc" height="160"></canvas>
+          </div>
+          <button class="reset-btn" id="resetBtn">
+            <i class="fa-solid fa-rotate-left"></i> New Prediction
+          </button>
+        </div>
+
+        <div class="errcard glass" id="ec" hidden>
+          <div class="erri"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h3 style="margin-bottom:12px">Something went wrong</h3>
+          <ul class="errl" id="errl"></ul>
+          <button class="reset-btn" id="errReset">
+            <i class="fa-solid fa-rotate-left"></i> Try Again
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
 <section id="metrics">
-<div class="container">
-<div class="sec-hd">
-<p class="eyebrow">Transparency</p>
-<h2 class="sec-title">Model Performance</h2>
-<p class="sec-sub">Real metrics from training on the Ames Housing dataset.</p>
-</div>
-<div class="mgrid">
-<div class="mc glass">
-<div class="mring"><svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf r2" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="15.4"/></svg><span class="rl2">{{ "%.1f"|format(metrics.accuracy) }}%</span></div>
-<h4>R2 Score</h4><p>Variance explained</p>
-</div>
-<div class="mc glass">
-<div class="mring"><svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf mp" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="238"/></svg><span class="rl2">{{ "%.1f"|format(metrics.get('mape', 4.8)) }}%</span></div>
-<h4>MAPE</h4><p>Mean absolute error</p>
-</div>
-<div class="mc glass">
-<div class="mring"><svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf rm" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="105"/></svg><span class="rl2">${{ "{:,.0f}".format(metrics.rmse / 1000) }}K</span></div>
-<h4>RMSE</h4><p>Root mean squared error</p>
-</div>
-<div class="mc glass">
-<div class="mring"><svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf cv" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="26"/></svg><span class="rl2">{{ "%.0f"|format(metrics.get('cv_mean', 0.9) * 100) }}%</span></div>
-<h4>Cross-Val</h4><p>5-fold CV score</p>
-</div>
-</div>
-<div class="algoc glass">
-<div class="ai"><i class="fa-solid fa-gears"></i><div><strong>Algorithm</strong><span>{{ metrics.get('algorithm', 'Gradient Boosting') }}</span></div></div>
-<div class="ai"><i class="fa-solid fa-database"></i><div><strong>Training Data</strong><span>{{ "{:,}".format(metrics.train_size) }} records</span></div></div>
-<div class="ai"><i class="fa-solid fa-code-branch"></i><div><strong>Features</strong><span>{{ metrics.get('features', 10) }} engineered</span></div></div>
-<div class="ai"><i class="fa-solid fa-flask"></i><div><strong>Validation</strong><span>80/20 split + 5-fold CV</span></div></div>
-</div>
-</div>
+  <div class="container">
+    <div class="sec-hd">
+      <p class="eyebrow">Transparency</p>
+      <h2 class="sec-title">Model Performance</h2>
+      <p class="sec-sub">Real metrics from training on the Ames Housing dataset.</p>
+    </div>
+    <div class="mgrid">
+      <div class="mc glass">
+        <div class="mring">
+          <svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf r2" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="15.4"/></svg>
+          <span class="rl2">{{ "%.1f"|format(metrics.accuracy) }}%</span>
+        </div>
+        <h4>R2 Score</h4><p>Variance explained</p>
+      </div>
+      <div class="mc glass">
+        <div class="mring">
+          <svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf mp" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="238"/></svg>
+          <span class="rl2">{{ "%.1f"|format(metrics.get('mape', 4.8)) }}%</span>
+        </div>
+        <h4>MAPE</h4><p>Mean absolute error</p>
+      </div>
+      <div class="mc glass">
+        <div class="mring">
+          <svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf rm" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="105"/></svg>
+          <span class="rl2">${{ "{:,.0f}".format(metrics.rmse / 1000) }}K</span>
+        </div>
+        <h4>RMSE</h4><p>Root mean squared error</p>
+      </div>
+      <div class="mc glass">
+        <div class="mring">
+          <svg viewBox="0 0 100 100"><circle class="rb" cx="50" cy="50" r="42"/><circle class="rf cv" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="26"/></svg>
+          <span class="rl2">{{ "%.0f"|format(metrics.get('cv_mean', 0.9) * 100) }}%</span>
+        </div>
+        <h4>Cross-Val</h4><p>5-fold CV score</p>
+      </div>
+    </div>
+    <div class="algoc glass">
+      <div class="ai"><i class="fa-solid fa-gears"></i><div><strong>Algorithm</strong><span>{{ metrics.get('algorithm', 'Gradient Boosting') }}</span></div></div>
+      <div class="ai"><i class="fa-solid fa-database"></i><div><strong>Training Data</strong><span>{{ "{:,}".format(metrics.train_size) }} records</span></div></div>
+      <div class="ai"><i class="fa-solid fa-code-branch"></i><div><strong>Features</strong><span>{{ metrics.get('features', 10) }} engineered</span></div></div>
+      <div class="ai"><i class="fa-solid fa-flask"></i><div><strong>Validation</strong><span>80/20 split + 5-fold CV</span></div></div>
+    </div>
+  </div>
 </section>
+
 <footer>
-<div class="fi">
-<a href="#" class="logo"><span class="logo-icon"><i class="fa-solid fa-house-chimney"></i></span>Estate<span style="color:var(--accent)">IQ</span></a>
-<div class="fl">
-<a href="https://github.com/karishmaram-tech" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-<a href="https://www.linkedin.com/in/karishmaram07/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-<a href="https://huggingface.co/spaces/karishmaram-tech/EstateIQ" target="_blank"><i class="fa-solid fa-robot"></i> HuggingFace</a>
-</div>
-<p class="fc">2025 EstateIQ Built with Python Flask and ML by Karishma Ram</p>
-</div>
+  <div class="fi">
+    <a href="#" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-house-chimney"></i></span>
+      Estate<span style="color:var(--accent)">IQ</span>
+    </a>
+    <div class="fl">
+      <a href="https://github.com/karishmaram-tech" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/karishmaram" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://huggingface.co/spaces/karishmaram-tech/EstateIQ" target="_blank"><i class="fa-solid fa-robot"></i> HuggingFace</a>
+    </div>
+    <p class="fc">2025 EstateIQ - Built with Python, Flask and ML by Karishma Ram</p>
+  </div>
 </footer>
+
 <script>
 const $ = id => document.getElementById(id);
-const fmt = n => new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0}).format(n);
+const fmt = n => new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', maximumFractionDigits: 0}).format(n);
 const condLabels = ['','Dilapidated','Poor','Below Avg','Fair','Average','Good','Very Good','Excellent','Outstanding','Pristine'];
 let chartInst = null;
 
-const html = document.documentElement;
+// Theme
+const htmlEl = document.documentElement;
 const savedTheme = localStorage.getItem('theme') || 'dark';
-html.setAttribute('data-theme', savedTheme);
+htmlEl.setAttribute('data-theme', savedTheme);
 $('themeIco').className = savedTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-$('themeBtn').addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
+$('themeBtn').addEventListener('click', function() {
+  const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   $('themeIco').className = next === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
 });
 
-window.addEventListener('scroll', () => {
+// Navbar scroll
+window.addEventListener('scroll', function() {
   $('nav').classList.toggle('scrolled', window.scrollY > 40);
 });
 
+// Steppers
 function initStepper(id) {
   const wrap = $(id);
   const inp = wrap.querySelector('input');
-  wrap.querySelector('.minus').addEventListener('click', () => {
+  wrap.querySelector('.minus').addEventListener('click', function() {
     if (parseInt(inp.value) > parseInt(inp.min)) inp.value = parseInt(inp.value) - 1;
   });
-  wrap.querySelector('.plus').addEventListener('click', () => {
+  wrap.querySelector('.plus').addEventListener('click', function() {
     if (parseInt(inp.value) < parseInt(inp.max)) inp.value = parseInt(inp.value) + 1;
   });
 }
 initStepper('sbeds');
 initStepper('sbaths');
 
+// Sliders
 function updateSliders() {
   const y = $('year_built').value;
   $('yearV').textContent = y;
@@ -368,13 +510,14 @@ $('loc').addEventListener('input', updateSliders);
 $('cond').addEventListener('input', updateSliders);
 updateSliders();
 
+// Sample data
 const SAMPLES = [
   {area:2100, beds:4, baths:3, floors:2, year:2005, loc:7, cond:8, garage:true, pool:false, garden:true},
   {area:950,  beds:2, baths:1, floors:1, year:1985, loc:5, cond:6, garage:false, pool:false, garden:false},
   {area:4800, beds:6, baths:5, floors:3, year:2018, loc:10, cond:10, garage:true, pool:true, garden:true}
 ];
 let sampleIdx = 0;
-$('sampleBtn').addEventListener('click', () => {
+$('sampleBtn').addEventListener('click', function() {
   const s = SAMPLES[sampleIdx % 3];
   sampleIdx++;
   $('area').value = s.area;
@@ -390,6 +533,7 @@ $('sampleBtn').addEventListener('click', () => {
   updateSliders();
 });
 
+// Reset
 function resetAll() {
   $('ph').hidden = false;
   $('rc').hidden = true;
@@ -399,14 +543,16 @@ function resetAll() {
 $('resetBtn').addEventListener('click', resetAll);
 $('errReset').addEventListener('click', resetAll);
 
+// Show error
 function showErr(errors) {
   $('ph').hidden = true;
   $('rc').hidden = true;
   $('ec').hidden = false;
   const list = Array.isArray(errors) ? errors : [errors];
-  $('errl').innerHTML = list.map(e => '<li>' + e + '</li>').join('');
+  $('errl').innerHTML = list.map(function(e) { return '<li>' + e + '</li>'; }).join('');
 }
 
+// Feature chart
 function renderChart(payload) {
   const ctx = $('fc').getContext('2d');
   const imp = {
@@ -419,9 +565,9 @@ function renderChart(payload) {
     'Pool': payload.pool ? 25000 : 0,
     'Garden': payload.garden ? 10000 : 0
   };
-  const labels = Object.keys(imp).filter(k => imp[k] > 0);
-  const values = labels.map(k => imp[k]);
-  const dark = html.getAttribute('data-theme') === 'dark';
+  const labels = Object.keys(imp).filter(function(k) { return imp[k] > 0; });
+  const values = labels.map(function(k) { return imp[k]; });
+  const dark = htmlEl.getAttribute('data-theme') === 'dark';
   const tc = dark ? '#9d9a91' : '#5c5650';
   const gc = dark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
   if (chartInst) chartInst.destroy();
@@ -450,6 +596,7 @@ function renderChart(payload) {
   });
 }
 
+// Form submit
 $('predictForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const area = parseFloat($('area').value);

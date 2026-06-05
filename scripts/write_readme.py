@@ -1,4 +1,5 @@
-# EstateIQ - AI-Powered House Price Prediction
+readme = open("README.md", "w", encoding="utf-8")
+readme.write("""# EstateIQ - AI-Powered House Price Prediction
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/karishmaram-tech/EstateIQ)
 [![Python](https://img.shields.io/badge/Python-3.11-blue)](https://python.org)
@@ -146,3 +147,6 @@ Karishma Ram
 - GitHub: https://github.com/karishmaram-tech
 - LinkedIn: https://linkedin.com/in/karishmaram
 - Live Demo: https://huggingface.co/spaces/karishmaram-tech/EstateIQ
+""")
+readme.close()
+print("README written successfully")
