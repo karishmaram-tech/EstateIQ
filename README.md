@@ -1,12 +1,14 @@
 ---
 title: EstateIQ
-emoji: house
+emoji: 🏠
 colorFrom: yellow
-colorTo: orange
+colorTo: red
 sdk: docker
 app_file: run.py
 pinned: false
 ---
+
+
 
 # EstateIQ - AI-Powered House Price Prediction
 
