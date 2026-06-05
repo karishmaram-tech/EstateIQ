@@ -1,3 +1,13 @@
+---
+title: EstateIQ
+emoji: house
+colorFrom: yellow
+colorTo: orange
+sdk: docker
+app_file: run.py
+pinned: false
+---
+
 # EstateIQ - AI-Powered House Price Prediction
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/karishmaram-tech/EstateIQ)
